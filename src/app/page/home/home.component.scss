@@ -1,0 +1,51 @@
+@import "../../common/vars";
+
+.honest-home {
+
+  &__banner-wrap {
+    height: 700px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__banner {
+    display: block;
+    height: 700px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 110%;
+  }
+
+  &__banner-text {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 110px;
+  }
+
+  &__container {
+    width: 1366px;
+    margin: auto;
+  }
+
+  &__text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__text-folder {
+    background-color: rgba($highlight, 0.5);
+    color: $white;
+    padding: 10px 20px;
+    margin-top: 6px;
+    font-weight: 300;
+    text-align: right;
+  }
+}
