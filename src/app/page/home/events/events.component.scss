@@ -1,0 +1,56 @@
+.honest-events {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(304deg, #eeffac, #fcfff2),
+    radial-gradient(circle at 100% 68%, rgba(211, 75, 75, 0.1), rgba(211, 75, 75, 0));
+  padding: 180px 0;
+  position: relative;
+
+  &__wrap {
+    width: 540px;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__title {
+    font-family: Yanone Kaffeesatz, sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1;
+    color: #162036;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  &__sub-title {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.25;
+    color: #c6eb38;
+    margin-bottom: 30px;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 1.44;
+    color: #8c9ab2;
+    margin-bottom: 40px;
+    padding-right: 125px;
+  }
+
+  &__parallax {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+
+    &__back {
+      z-index: 2;
+    }
+  }
+}

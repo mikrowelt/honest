@@ -1,0 +1,29 @@
+<div class="honest-events__wrap">
+  <div class="honest-events__title">
+    event услуги
+  </div>
+  <div class="honest-events__sub-title">
+    От идеи к воплощению!
+  </div>
+  <div class="honest-events__description">
+    Команда event-специалистов Honest предоставляет услуги полного цикла: от разработки сценария, до занавеса.
+    Чтобы получить профессиональную экспертизу и перейти от идеи
+    к воплощению, ознакомьтесь с нашими рекомендациямии заполните бриф.
+  </div>
+  <div>
+    <honest-button [modifiers]="['invert']"
+                   [text]="'все о event услугах'"
+                   [icon]="'fa-chevron-right'"></honest-button>
+  </div>
+</div>
+<div class="honest-events__wrap">
+  <honest-double-carousel [images]="eventImages"></honest-double-carousel>
+</div>
+<img class="honest-events__parallax"
+     honestParallax
+     [ratio]="0.3"
+     src="/assets/events/superback.svg" />
+<img class="honest-events__parallax honest-events__parallax_front"
+     honestParallax
+     [ratio]="0.4"
+     src="/assets/events/back.svg" />

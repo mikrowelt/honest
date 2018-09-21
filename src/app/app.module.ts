@@ -9,6 +9,15 @@ import { WindowRef } from './common/window-ref';
 import { BannerComponent } from './page/home/banner/banner.component';
 import { ButtonComponent } from './common/button/button.component';
 import { PlacesComponent } from './page/home/places/places.component';
+import { PlaceComponent } from './page/home/places/place/place.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PlacesService } from './services/places.service';
+import { PlacesResolve } from "./page/home/places/places.resolve";
+import { EventsComponent } from './page/home/events/events.component';
+import { ParallaxDirective } from "./common/parallax.directive";
+import { DoubleCarouselComponent } from './page/home/events/double-carousel/double-carousel.component';
+import {EventsService} from "./services/events.service";
+import {EventsResolve} from "./page/home/events/events.resolve";
 
 @NgModule({
   declarations: [
@@ -17,14 +26,23 @@ import { PlacesComponent } from './page/home/places/places.component';
     HomeComponent,
     BannerComponent,
     ButtonComponent,
-    PlacesComponent
+    PlacesComponent,
+    PlaceComponent,
+    EventsComponent,
+    ParallaxDirective,
+    DoubleCarouselComponent
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
-    WindowRef
+    WindowRef,
+    PlacesService,
+    PlacesResolve,
+    EventsService,
+    EventsResolve
   ],
   bootstrap: [
     AppComponent

@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   ViewEncapsulation
 } from '@angular/core';

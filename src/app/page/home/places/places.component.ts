@@ -3,6 +3,8 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {PlaceModel} from "../../../models/place.model";
 
 @Component({
   selector: 'honest-places',
@@ -15,9 +17,14 @@ import {
 })
 export class PlacesComponent implements OnInit {
 
-  constructor() { }
+  public places: PlaceModel[];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe((data: any) => {
+      this.places = data.places;
+    });
   }
 
 }

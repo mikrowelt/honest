@@ -7,10 +7,6 @@
   Всего в две строки. Просто общие слова о местах.
 </div>
 <div class="honest-places__list">
-  <div class="honest-places__item">
-    <img class="honest-places__frame"
-         src="/assets/hexframe.svg" />
-    <img class="honest-places__image"
-         src="/assets/home.jpg" />
-  </div>
+  <honest-place *ngFor="let place of places"
+                [place]="place"></honest-place>
 </div>

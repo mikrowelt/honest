@@ -1,0 +1,28 @@
+<div class="honest-double-carousel__controls">
+  <honest-button [modifiers]="['white', 'small']"
+                 (click)="prevSlide()"
+                 [icon]="'fa-chevron-left'"></honest-button>
+  <honest-button [modifiers]="['white', 'small']"
+                 (click)="nextSlide()"
+                 [icon]="'fa-chevron-right'"></honest-button>
+</div>
+<div class="honest-double-carousel__wrap">
+  <div class="honest-double-carousel__image-list"
+       [ngStyle]="getOffsetStyle(-1)">
+    <div class="honest-double-carousel__image-wrap"
+         *ngFor="let image of images">
+      <img class="honest-double-carousel__image"
+           [src]="image"/>
+    </div>
+  </div>
+</div>
+<div class="honest-double-carousel__wrap honest-double-carousel__wrap_front">
+  <div class="honest-double-carousel__image-list"
+       [ngStyle]="getOffsetStyle(0)">
+    <div class="honest-double-carousel__image-wrap"
+         *ngFor="let image of images">
+      <img class="honest-double-carousel__image"
+           [src]="image"/>
+    </div>
+  </div>
+</div>

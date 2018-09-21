@@ -3,12 +3,16 @@
 .honest-home {
   min-width: 1366px;
 
-  &__banner-wrap {
+  &__slide-wrap {
     min-width: 1366px;
-    height: 840px;
     width: 100%;
     position: relative;
+    overflow: hidden;
+    border-radius: 0 0 100% 100%/60px;
   }
 
-
+  &__dummy {
+    height: 1000px;
+    width: 100%;
+  }
 }

@@ -4,6 +4,7 @@
   height: 68px;
   padding: 0 60px;
   border-radius: 9px;
+  border: 1px solid $primary;
   background-color: $primary;
   box-shadow: 0 4px 60px 0 rgba($primary-dark, 0.5);
   font-size: 16px;
@@ -12,7 +13,7 @@
   color: $white;
   text-shadow: 0 1px 1px $primary-dark;
   text-transform: uppercase;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -20,6 +21,7 @@
   &_white {
     background-color: $white;
     color: $primary;
+    border-color: $white;
   }
 
   &_round {
@@ -29,5 +31,25 @@
   &_no-text {
     padding: 0;
     width: 68px;
+
+    .honest-button__icon {
+      margin-left: 0;
+    }
+  }
+
+  &_invert {
+    background-color: transparent;
+    color: $primary;
+    text-shadow: none;
+    box-shadow: none;
+  }
+
+  &_small {
+    height: 52px;
+    width: 52px;
+  }
+
+  &__icon {
+    margin-left: 10px;
   }
 }
