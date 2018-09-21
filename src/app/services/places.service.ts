@@ -13,6 +13,6 @@ export class PlacesService {
     return this.http.get('/assets/stabs/places.json')
       .map((items: any) => {
         return items.map(item => new PlaceModel(item.image, item.title, item.description));
-      });
+      }) as Observable<PlaceModel[]>;
   }
 }

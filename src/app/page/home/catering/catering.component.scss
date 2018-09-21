@@ -1,29 +1,23 @@
-.honest-events {
+.honest-catering {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: linear-gradient(304deg, #eeffac, #fcfff2),
-    radial-gradient(circle at 100% 68%, rgba(211, 75, 75, 0.1), rgba(211, 75, 75, 0));
-  padding: 180px 0;
-  position: relative;
+  background-image: linear-gradient(to bottom, #fefff8, rgba(254, 255, 248, 0.7));
+  padding: 200px 0 160px;
 
   &__wrap {
     width: 540px;
-    position: relative;
-    z-index: 3;
   }
 
   &__title {
     font-family: Yanone Kaffeesatz, sans-serif;
     font-size: 64px;
     font-weight: bold;
-    line-height: 1;
     color: #162036;
-    margin-bottom: 30px;
     text-transform: uppercase;
+    margin: 61px 0 30px;
   }
 
   &__sub-title {
@@ -36,21 +30,34 @@
   }
 
   &__description {
+    width: 500px;
     font-size: 18px;
     line-height: 1.44;
     color: #8c9ab2;
-    margin-bottom: 40px;
-    padding-right: 125px;
+    margin-bottom: 50px;
   }
 
-  &__parallax {
+  &__back {
     position: absolute;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
 
-    &__back {
-      z-index: 2;
+    &_top-left {
+      top: 50px;
+      left: 0;
+    }
+
+    &_top-right {
+      top: 100px;
+      right: 0;
+    }
+
+    &_bottom-left {
+      bottom: 0px;
+      left: 0;
+    }
+
+    &_bottom-right {
+      bottom: 0px;
+      right: 0;
     }
   }
 }

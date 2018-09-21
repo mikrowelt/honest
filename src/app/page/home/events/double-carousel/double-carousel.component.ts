@@ -36,7 +36,7 @@ export class DoubleCarouselComponent implements OnInit {
   public prevSlide(): void {
 
     const prevSlide = this.currentSlide - 1 < 2
-      ? 2
+      ? this.images.length
       : this.currentSlide - 1;
     this.currentSlide = prevSlide;
     console.log('prev', this.currentSlide);

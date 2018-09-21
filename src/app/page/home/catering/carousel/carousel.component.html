@@ -1,0 +1,26 @@
+<div class="honest-carousel__wrap">
+  <div class="honest-carousel__list"
+       [ngStyle]="getOffsetStyle()">
+    <div class="honest-carousel__item"
+         *ngFor="let catering of cateringPromoModels">
+      <img class="honest-carousel__image"
+           [src]="catering.image" />
+      <div class="honest-carousel__title">
+        {{ catering.title }}
+      </div>
+      <div class="honest-carousel__description">
+        {{ catering.description }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="honest-carousel__back"></div>
+<div class="honest-carousel__back honest-carousel__back_small"></div>
+<div class="honest-carousel__controls">
+  <honest-button [modifiers]="['invert', 'small']"
+                 (click)="prevSlide()"
+                 [icon]="'fa-chevron-left'"></honest-button>
+  <honest-button [modifiers]="['invert', 'small']"
+                 (click)="nextSlide()"
+                 [icon]="'fa-chevron-right'"></honest-button>
+</div>

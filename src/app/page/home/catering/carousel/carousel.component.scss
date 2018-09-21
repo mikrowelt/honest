@@ -1,0 +1,80 @@
+.honest-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrap {
+    width: 350px;
+    height: 426px;
+    border-radius: 9px;
+    background-color: #ffffff;
+    box-shadow: 0 20px 60px 0 rgba(65, 94, 143, 0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__list {
+    display: flex;
+    height: 426px;
+    position: absolute;
+    transition: all 1s;
+    left: 0;
+  }
+
+  &__item {
+    width: 350px;
+    height: 426px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__image {
+    width: 158px;
+    height: 170px;
+    margin: 60px 0 20px;
+  }
+
+  &__title {
+    font-family: Yanone Kaffeesatz, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #162036;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    width: 300px;
+    font-size: 18px;
+    line-height: 1.44;
+    text-align: center;
+    color: #8c9ab2;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 144px;
+    margin-top: 40px;
+  }
+
+  &__back {
+    width: 350px;
+    height: 386px;
+    border-radius: 9px;
+    background-color: #ffffff;
+    box-shadow: 0 20px 60px 0 rgba(65, 94, 143, 0.1);
+    position: absolute;
+    transform: translate(-20px, 20px);
+    z-index: 2;
+
+    &_small {
+      height: 346px;
+      transform: translate(-40px, 40px);
+      z-index: 1;
+    }
+  }
+}

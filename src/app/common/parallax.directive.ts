@@ -27,7 +27,7 @@ export class ParallaxDirective {
   public onWindowScroll(): void {
     const top = this.eleRef.nativeElement.parentElement.getBoundingClientRect().top;
     if (top < this.clientHeight) {
-      this.eleRef.nativeElement.style.top = (top - this.clientHeight) * this.parallaxRatio + 'px';
+      this.eleRef.nativeElement.style.transform = `translateY(${(top + this.clientHeight) * this.parallaxRatio}px)`;
     }
   }
 

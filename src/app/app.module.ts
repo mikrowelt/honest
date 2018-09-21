@@ -18,6 +18,10 @@ import { ParallaxDirective } from "./common/parallax.directive";
 import { DoubleCarouselComponent } from './page/home/events/double-carousel/double-carousel.component';
 import {EventsService} from "./services/events.service";
 import {EventsResolve} from "./page/home/events/events.resolve";
+import { CateringComponent } from './page/home/catering/catering.component';
+import { CarouselComponent } from './page/home/catering/carousel/carousel.component';
+import {CateringService} from "./services/catering.service";
+import {CateringPromoResolve} from "./page/home/catering/catering.resolve";
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import {EventsResolve} from "./page/home/events/events.resolve";
     PlaceComponent,
     EventsComponent,
     ParallaxDirective,
-    DoubleCarouselComponent
+    DoubleCarouselComponent,
+    CateringComponent,
+    CarouselComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,7 +48,9 @@ import {EventsResolve} from "./page/home/events/events.resolve";
     PlacesService,
     PlacesResolve,
     EventsService,
-    EventsResolve
+    EventsResolve,
+    CateringService,
+    CateringPromoResolve
   ],
   bootstrap: [
     AppComponent
