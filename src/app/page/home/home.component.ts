@@ -4,8 +4,6 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { IParallaxScrollConfig } from 'ng2-parallaxscroll';
-
 @Component({
   selector: 'honest-home',
   templateUrl: './home.component.html',
@@ -17,24 +15,8 @@ import { IParallaxScrollConfig } from 'ng2-parallaxscroll';
 })
 export class HomeComponent implements OnInit {
 
-  public bannerConfig: IParallaxScrollConfig = {
-    axis: 'Y',
-    speed: .5,
-    initialValue: 100
-  };
+  constructor() {}
 
-  public textConfig: IParallaxScrollConfig = {
-    axis: 'Y',
-    speed: .5,
-    initialValue: 100
-  };
-
-  constructor() {
-    this.textConfig['cssProperty'] = 'padding-top';
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }

@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700,800&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700&subset=cyrillic');
+
 .honest-app {
-  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-family: Alegreya Sans, sans-serif;
+  min-width: 1366px;
 
   &__body {
 
