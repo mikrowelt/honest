@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "honest",
       "styles": [
+        "../node_modules/ngx-simple-modal/dist/styles/simple-modal.scss",
         "styles.scss"
       ],
       "scripts": [],

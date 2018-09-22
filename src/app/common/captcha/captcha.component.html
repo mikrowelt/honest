@@ -1,0 +1,33 @@
+<div class="modal-content">
+  <div class="modal-body" *ngIf="!(error | async) && !(success | async)">
+    <div class="honest-captcha__title">
+      защита от спама
+    </div>
+    <div class="honest-captcha__description">
+      Подтвердите что действительно являетесь человеком
+    </div>
+    <re-captcha (resolved)="resolved($event)" siteKey="6LfdbXEUAAAAAIo2ejZe3ccI2VNugOyWvogMnfrx"></re-captcha>
+    <honest-button [text]="'отмена'"
+                   (click)="close()"></honest-button>
+  </div>
+  <div class="modal-body" *ngIf="error | async">
+    <div class="honest-captcha__title">
+      произошла ошибка
+    </div>
+    <div class="honest-captcha__description">
+      {{ errorMsg }}
+    </div>
+    <honest-button [text]="'закрыть'"
+                   (click)="close()"></honest-button>
+  </div>
+  <div class="modal-body" *ngIf="success | async">
+    <div class="honest-captcha__title">
+      ваша заявка сформирована
+    </div>
+    <div class="honest-captcha__description">
+      В ближайщие время наши менеджеры свяжутся с Вами. Спасибо
+    </div>
+    <honest-button [text]="'закрыть'"
+                   (click)="close()"></honest-button>
+  </div>
+</div>

@@ -4,5 +4,10 @@
 @import "app/common/vars";
 
 body {
-  background-color: $bg-primary;
+  background-color: #fff;
 }
+
+.modal {
+  z-index: 1000;
+}
+

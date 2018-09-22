@@ -1,10 +1,18 @@
 <div class="honest-nav-bar__body">
   <div class="honest-nav-bar__menu">
-    <div class="honest-nav-bar__item">Event услуги</div>
-    <div class="honest-nav-bar__item">Кейтеринг</div>
+    <div class="honest-nav-bar__item"
+         pageScroll
+         [pageScrollTarget]="'#events'">Event услуги</div>
+    <div class="honest-nav-bar__item"
+         pageScroll
+         [pageScrollTarget]="'#catering'">Кейтеринг</div>
     <img class="honest-nav-bar__item honest-nav-bar__item_logo"
+         pageScroll
+         [pageScrollTarget]="'#home'"
          src="/assets/logo_moscow_white.svg" />
-    <div class="honest-nav-bar__item">Площадки</div>
+    <div class="honest-nav-bar__item"
+         pageScroll
+         [pageScrollTarget]="'#places'">Площадки</div>
     <a class="honest-nav-bar__item honest-nav-bar__item_contacts"
        href="tel:+74950180485">
       <i class="fas fa-mobile-alt"></i>

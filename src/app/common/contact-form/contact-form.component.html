@@ -1,0 +1,36 @@
+<div class="honest-contact-form__wrap">
+  <form class="honest-contact-form__body">
+    <div class="honest-contact-form__field-wrap">
+      <label class="honest-contact-form__label">
+        ваше имя
+        <input class="honest-contact-form__input"
+               type="text"
+               name="name"
+               [(ngModel)]="name"
+               placeholder="Анастасия Иванова"/>
+      </label>
+    </div>
+    <div class="honest-contact-form__field-wrap">
+      <label class="honest-contact-form__label">
+        email адрес
+        <input class="honest-contact-form__input"
+               type="email"
+               name="email"
+               [(ngModel)]="email"
+               placeholder="anastasiaivanova@gmail.com"/>
+      </label>
+    </div>
+    <div class="honest-contact-form__field-wrap honest-contact-form__field-wrap_big">
+      <label class="honest-contact-form__label">
+        Какое мероприятие вы хотите провести и когда?
+        <textarea class="honest-contact-form__textarea"
+                  name="description"
+                  autocomplete="off"
+                  [(ngModel)]="description"
+                  placeholder="Мне нужно организовать шикарный банкет на 20 персон в Филевском Парке 25 янавря вечером. Понадобится кейтеринг и живая музыка."></textarea>
+      </label>
+    </div>
+  </form>
+  <honest-button [text]="'оставить заказ'"
+                 (click)="submit()"></honest-button>
+</div>

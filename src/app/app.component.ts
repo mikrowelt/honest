@@ -3,6 +3,7 @@ import {
   Component,
   ViewEncapsulation
 } from '@angular/core';
+import {LoaderService} from "./services/loader.service";
 
 @Component({
   selector: 'honest-root',
@@ -15,4 +16,6 @@ import {
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(loaderService: LoaderService) {}
 }

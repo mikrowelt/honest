@@ -18,6 +18,7 @@
 
     .honest-nav-bar__menu {
       color: $border-primary;
+      margin: 15px 0;
     }
   }
 
@@ -33,7 +34,7 @@
     justify-content: center;
     align-items: center;
     color: $white;
-    transition: color 0.35s ease-out;
+    transition: color 0.35s ease-out, margin 0.35s ease-out;
     width: 100%;
     margin: 60px 0;
   }
@@ -45,7 +46,7 @@
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 2.2px;
-    margin: 0 26px;
+    margin-left: 52px;
     text-transform: uppercase;
     cursor: pointer;
 
@@ -56,7 +57,7 @@
     &_logo {
       padding-top: 0;
       height: 38px;
-      margin: 0 45px;
+      margin: 0 19px 0 74px;
     }
 
     &_contacts {

@@ -22,6 +22,17 @@ import { CateringComponent } from './page/home/catering/catering.component';
 import { CarouselComponent } from './page/home/catering/carousel/carousel.component';
 import {CateringService} from "./services/catering.service";
 import {CateringPromoResolve} from "./page/home/catering/catering.resolve";
+import { ContactsComponent } from './page/home/contacts/contacts.component';
+import { ContactFormComponent } from './common/contact-form/contact-form.component';
+import { FooterComponent } from './common/footer/footer.component';
+import {RecaptchaModule} from "ng-recaptcha";
+import {SimpleModalModule} from "ngx-simple-modal";
+import {defaultSimpleModalOptions} from "ngx-simple-modal/dist/simple-modal/simple-modal-options";
+import { CaptchaComponent } from './common/captcha/captcha.component';
+import {ContactsService} from "./services/contacts.service";
+import {FormsModule} from "@angular/forms";
+import {Ng2PageScrollModule} from "ng2-page-scroll";
+import {LoaderService} from "./services/loader.service";
 
 @NgModule({
   declarations: [
@@ -36,12 +47,26 @@ import {CateringPromoResolve} from "./page/home/catering/catering.resolve";
     ParallaxDirective,
     DoubleCarouselComponent,
     CateringComponent,
-    CarouselComponent
+    CarouselComponent,
+    ContactsComponent,
+    ContactFormComponent,
+    FooterComponent,
+    CaptchaComponent
+  ],
+  entryComponents: [
+    CaptchaComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule.forRoot(),
+    SimpleModalModule.forRoot({container: 'honest-root'}, {...defaultSimpleModalOptions, ...{
+      closeOnEscape: true,
+      closeOnClickOutside: true
+    }} as any),
+    FormsModule,
+    Ng2PageScrollModule
   ],
   providers: [
     WindowRef,
@@ -50,7 +75,9 @@ import {CateringPromoResolve} from "./page/home/catering/catering.resolve";
     EventsService,
     EventsResolve,
     CateringService,
-    CateringPromoResolve
+    CateringPromoResolve,
+    ContactsService,
+    LoaderService
   ],
   bootstrap: [
     AppComponent
