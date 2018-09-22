@@ -14,6 +14,14 @@
     width: 540px;
     position: relative;
     z-index: 3;
+    transition: all 0.8s;
+    opacity: 1;
+    transform: translateX(0);
+
+    &_animation_right {
+      transform: translateX(500px);
+      opacity: 0;
+    }
   }
 
   &__title {
@@ -24,6 +32,14 @@
     color: #162036;
     margin-bottom: 30px;
     text-transform: uppercase;
+    transition: all 0.8s;
+    opacity: 1;
+    transform: translateX(0);
+
+    &_animation_left {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
   }
 
   &__sub-title {
@@ -33,6 +49,15 @@
     line-height: 1.25;
     color: #c6eb38;
     margin-bottom: 30px;
+    transition: all 0.8s;
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+
+    &_animation_left {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
   }
 
   &__description {
@@ -41,13 +66,34 @@
     color: #8c9ab2;
     margin-bottom: 40px;
     padding-right: 125px;
+    transition: all 1s;
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.4s;
+
+    &_animation_left {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
+  }
+
+  &__btn-wrap {
+    transition: all 0.8s;
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.6s;
+
+    &_animation_left {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
   }
 
   &__parallax {
     position: absolute;
     z-index: 1;
     right: 0;
-    bottom: 0;
+    bottom: 300px;
 
     &__back {
       z-index: 2;

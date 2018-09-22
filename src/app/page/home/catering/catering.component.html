@@ -1,22 +1,39 @@
-<div class="honest-catering__wrap">
+<div class="honest-catering__wrap honest-catering__wrap_animation_left"
+     honestScrollAnimation
+     [toggleClass]="'honest-catering__wrap_animation_left'"
+     [container]="'.honest-catering'">
   <honest-carousel [cateringPromoModels]="cateringPromos"></honest-carousel>
 </div>
 <div class="honest-catering__wrap">
-  <div class="honest-catering__title">
+  <div class="honest-catering__title honest-catering__title_animation_right"
+       honestScrollAnimation
+       [toggleClass]="'honest-catering__title_animation_right'"
+       [container]="'.honest-catering'">
     кейтеринг
   </div>
-  <div class="honest-catering__sub-title">
+  <div class="honest-catering__sub-title honest-catering__sub-title_animation_right"
+       honestScrollAnimation
+       [toggleClass]="'honest-catering__sub-title_animation_right'"
+       [container]="'.honest-catering'">
     Еда, которая решает.
   </div>
-  <div class="honest-catering__description">
+  <div class="honest-catering__description honest-catering__description_animation_right"
+       honestScrollAnimation
+       [toggleClass]="'honest-catering__description_animation_right'"
+       [container]="'.honest-catering'">
     Предоставляем услуги кейтеринга на любое количество гостей
     по индивидуальному меню. Кейтеринг Honest готовит не просто
     вкусную еду – это еда, которая решает ваши задачи.
     Хотите продегустировать нашу кухню, приезжайте в кафе Honest Daily.
   </div>
-  <honest-button [modifiers]="['invert']"
-                 [text]="'больше про кейтеринг'"
-                 [icon]="'fa-chevron-right'"></honest-button>
+  <div class="honest-catering__btn-wrap honest-catering__btn-wrap_animation_right"
+       honestScrollAnimation
+       [toggleClass]="'honest-catering__btn-wrap_animation_right'"
+       [container]="'.honest-catering'">
+    <honest-button [modifiers]="['invert']"
+                   [text]="'больше про кейтеринг'"
+                   [icon]="'fa-chevron-right'"></honest-button>
+  </div>
 </div>
 <img class="honest-catering__back honest-catering__back_top-left"
      honestParallax

@@ -16,6 +16,7 @@
     width: 100%;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
       linear-gradient(120deg, rgba(198, 235, 56, 0), rgba(198, 235, 56, 0.25));
+    z-index: 1;
   }
 
   &__img {
@@ -24,9 +25,14 @@
     background-clip: padding-box;
   }
 
+  &__video {
+    height: 150%;
+    transform: translateY(-250px);
+  }
+
   &__text {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     height: 100%;

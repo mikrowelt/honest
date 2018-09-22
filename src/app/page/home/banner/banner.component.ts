@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, ElementRef,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
@@ -15,9 +15,10 @@ import {
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
+    this.el.nativeElement.querySelector('.honest-banner__video').playbackRate = 0.8;
   }
 
 }

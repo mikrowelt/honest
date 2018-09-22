@@ -21,7 +21,9 @@ export class LoaderService {
         loader.classList.remove('honest-loader_pre-hidden');
       }),
       debounce(() => timer(100)),
-      map(() => document.images),
+      map(() => {
+        return document.images
+      }),
       concatAll(),
       map((image) => fromEvent(image, 'load')),
       takeWhile((value, index) => {

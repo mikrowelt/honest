@@ -33,6 +33,7 @@ import {ContactsService} from "./services/contacts.service";
 import {FormsModule} from "@angular/forms";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {LoaderService} from "./services/loader.service";
+import {ScrollAnimationDirective} from "./common/scroll-animation.directive";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {LoaderService} from "./services/loader.service";
     ContactsComponent,
     ContactFormComponent,
     FooterComponent,
-    CaptchaComponent
+    CaptchaComponent,
+    ScrollAnimationDirective
   ],
   entryComponents: [
     CaptchaComponent

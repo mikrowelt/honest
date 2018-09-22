@@ -1,29 +1,44 @@
 <div class="honest-events__wrap">
-  <div class="honest-events__title">
+  <div class="honest-events__title honest-events__title_animation_left"
+       honestScrollAnimation
+       [toggleClass]="'honest-events__title_animation_left'"
+       [container]="'.honest-events'">
     event услуги
   </div>
-  <div class="honest-events__sub-title">
+  <div class="honest-events__sub-title honest-events__sub-title_animation_left"
+       honestScrollAnimation
+       [toggleClass]="'honest-events__sub-title_animation_left'"
+       [container]="'.honest-events'">
     От идеи к воплощению!
   </div>
-  <div class="honest-events__description">
+  <div class="honest-events__description honest-events__description_animation_left"
+       honestScrollAnimation
+       [toggleClass]="'honest-events__description_animation_left'"
+       [container]="'.honest-events'">
     Команда event-специалистов Honest предоставляет услуги полного цикла: от разработки сценария, до занавеса.
     Чтобы получить профессиональную экспертизу и перейти от идеи
     к воплощению, ознакомьтесь с нашими рекомендациямии заполните бриф.
   </div>
-  <div>
+  <div class="honest-events__btn-wrap honest-events__btn-wrap_animation_left"
+       honestScrollAnimation
+       [toggleClass]="'honest-events__btn-wrap_animation_left'"
+       [container]="'.honest-events'">
     <honest-button [modifiers]="['invert']"
                    [text]="'все о event услугах'"
                    [icon]="'fa-chevron-right'"></honest-button>
   </div>
 </div>
-<div class="honest-events__wrap">
+<div class="honest-events__wrap honest-events__wrap_animation_right"
+     honestScrollAnimation
+     [toggleClass]="'honest-events__wrap_animation_right'"
+     [container]="'.honest-events'">
   <honest-double-carousel [images]="eventImages"></honest-double-carousel>
 </div>
 <img class="honest-events__parallax"
      honestParallax
-     [ratio]="0.3"
+     [ratio]="0.6"
      src="/assets/events/superback.svg" />
 <img class="honest-events__parallax honest-events__parallax_front"
      honestParallax
-     [ratio]="0.4"
+     [ratio]="0.3"
      src="/assets/events/back.svg" />
