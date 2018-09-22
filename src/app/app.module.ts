@@ -63,10 +63,7 @@ import {ScrollAnimationDirective} from "./common/scroll-animation.directive";
     BrowserModule,
     HttpClientModule,
     RecaptchaModule.forRoot(),
-    SimpleModalModule.forRoot({container: 'honest-root'}, {...defaultSimpleModalOptions, ...{
-      closeOnEscape: true,
-      closeOnClickOutside: true
-    }} as any),
+    SimpleModalModule.forRoot({container: 'honest-root'}),
     FormsModule,
     Ng2PageScrollModule
   ],
