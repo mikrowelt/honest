@@ -34,6 +34,7 @@ import {FormsModule} from "@angular/forms";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {LoaderService} from "./services/loader.service";
 import {ScrollAnimationDirective} from "./common/scroll-animation.directive";
+import {LocalStorageModule} from "@ngx-pwa/local-storage";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {ScrollAnimationDirective} from "./common/scroll-animation.directive";
     RecaptchaModule.forRoot(),
     SimpleModalModule.forRoot({container: 'honest-root'}),
     FormsModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    LocalStorageModule
   ],
   providers: [
     WindowRef,
