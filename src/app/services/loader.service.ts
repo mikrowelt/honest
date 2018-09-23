@@ -3,11 +3,13 @@ import {Router} from "@angular/router";
 import {debounce} from 'rxjs/operators/debounce';
 import {timer} from  "rxjs/observable/timer";
 import {
+  takeWhile,
   tap,
   toArray,
   zip
 } from  "rxjs/operators";
 import {fromEvent} from "rxjs/observable/fromEvent";
+import "rxjs/util/pipe"
 import "rxjs/operator/map"
 import "rxjs/operator/retry"
 import "rxjs/operator/last"
@@ -33,11 +35,9 @@ export class LoaderService {
       this.loadResources().subscribe((r) => {
         localStorage.getItem('notFirstTime').subscribe((notFirstTime) => {
           if (notFirstTime) {
-            console.log(1);
             this.hideLoader();
             this.playAllVideos();
           } else {
-            console.log(2);
             this.firstLoadHandle();
           }
         });
@@ -54,16 +54,29 @@ export class LoaderService {
   }
 
   private loadResources() {
-    const images = from(document.images)
-      .map((image) => {
+    const filteredImages = Array.from(document.images).filter(_ => _.complete);
+    const imagesLength = filteredImages.length;
+    const images = from(filteredImages)
+      .mergeMap((image) => {
         return fromEvent(image, 'load')
       })
-      .pipe(toArray());
-    return from(Array.from(document.querySelectorAll('video')))
-      .map((video) => {
-        return fromEvent(video, 'canplaythrough')
-      })
       .pipe(
+        takeWhile((v, i) => {
+          return imagesLength - 1 !== i;
+        }),
+        toArray()
+      );
+    const videosFiltered = Array.from(document.querySelectorAll('video')).filter((_: any) => _.readyState === 4);
+    const videos = videosFiltered;
+    return from(videos)
+      .mergeMap((video) => {
+        return fromEvent(video, 'canplay')
+      })
+      .map(() => true)
+      .pipe(
+        takeWhile((v, i) => {
+          return videos.length - 1 !== i;
+        }),
         toArray(),
         zip(images)
       );
@@ -71,8 +84,6 @@ export class LoaderService {
 
   private firstLoadHandle() {
     const firstTimeEl = this.loader.querySelector('.honest-loader__first-time');
-    this.loader.querySelector('.honest-loader__spinner')
-      .classList.add('honest-loader__spinner_hidden');
     firstTimeEl.classList.add('honest-loader__first-time_visible');
     firstTimeEl.addEventListener('click', () => {
       this.localStorage.setItem('notFirstTime', true)
@@ -85,11 +96,15 @@ export class LoaderService {
   }
 
   private hideLoader() {
-    this.loader.classList.add('honest-loader_hidden');
     this.loader.classList.add('honest-loader_pre-hidden');
+    setTimeout(() => {
+      this.loader.classList.add('honest-loader_hidden');
+      window['isLoading'] = false;
+    }, 1000)
   }
 
   private showLoader() {
+    window['isLoading'] = true;
     this.loader.classList.remove('honest-loader_hidden');
     this.loader.classList.remove('honest-loader_pre-hidden');
   }
@@ -97,7 +112,7 @@ export class LoaderService {
   private playAllVideos() {
     Array.from(document.querySelectorAll('video'))
       .forEach((video) => {
-        video.play();
+        (video as any).play();
       });
   }
 }
