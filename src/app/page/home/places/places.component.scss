@@ -4,6 +4,8 @@
   align-items: center;
   background-color: #fff;
   padding-bottom: 150px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 
   &__title {
     font-family: Yanone Kaffeesatz, sans-serif;

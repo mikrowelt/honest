@@ -17,35 +17,31 @@ import "rxjs/observable/timer"
 import "rxjs/operators/map"
 import "rxjs/operators/zip"
 import "rxjs/operator/takeWhile"
+import "rxjs/add/operator/mergeMap"
 import {from} from "rxjs/observable/from";
-import {LocalStorage} from "@ngx-pwa/local-storage";
 import set = Reflect.set;
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class LoaderService {
 
   private loader: Element;
 
+  public loading: BehaviorSubject<boolean> = new BehaviorSubject(true);
+
   constructor(
-    private router: Router,
-    private localStorage: LocalStorage
+    private router: Router
   ) {
     this.loader = document.querySelector('.honest-loader');
     this.startRouteLoading().subscribe(() => {
-      this.loadResources().subscribe((r) => {
-        localStorage.getItem('notFirstTime').subscribe((notFirstTime) => {
-          if (notFirstTime) {
-            this.hideLoader();
-            this.playAllVideos();
-          } else {
-            this.firstLoadHandle();
-          }
-        });
+      this.loadResources().subscribe(() => {
+        this.firstLoadHandle();
       });
     });
   }
 
-  private startRouteLoading() {
+  private startRouteLoading(): Observable<any> {
     return this.router.events.pipe(
       tap(() => {
         this.showLoader();
@@ -53,12 +49,15 @@ export class LoaderService {
       debounce(() => timer(100)));
   }
 
-  private loadResources() {
+  private loadResources(): Observable<any[]> {
     const filteredImages = Array.from(document.images).filter(_ => _.complete);
     const imagesLength = filteredImages.length;
     const images = from(filteredImages)
       .mergeMap((image) => {
-        return fromEvent(image, 'load')
+        const theImage = new Image();
+        const onLoad = fromEvent(theImage, 'load');
+        theImage.src = image.src;
+        return onLoad;
       })
       .pipe(
         takeWhile((v, i) => {
@@ -66,11 +65,10 @@ export class LoaderService {
         }),
         toArray()
       );
-    const videosFiltered = Array.from(document.querySelectorAll('video')).filter((_: any) => _.readyState === 4);
-    const videos = videosFiltered;
+    const videos = Array.from(document.querySelectorAll('video')).filter((_: any) => _.readyState === 4);
     return from(videos)
       .mergeMap((video) => {
-        return fromEvent(video, 'canplay')
+        return fromEvent(video, 'canplaythrough')
       })
       .map(() => true)
       .pipe(
@@ -83,11 +81,9 @@ export class LoaderService {
   }
 
   private firstLoadHandle() {
-    const firstTimeEl = this.loader.querySelector('.honest-loader__first-time');
-    firstTimeEl.classList.add('honest-loader__first-time_visible');
-    firstTimeEl.addEventListener('click', () => {
-      this.localStorage.setItem('notFirstTime', true)
-        .subscribe();
+    this.loader.querySelector('.honest-loader__first-time')
+      .classList.add('honest-loader__first-time_visible');
+    this.loader.addEventListener('click', () => {
       this.hideLoader();
       requestAnimationFrame(() => {
         this.playAllVideos();
@@ -96,23 +92,23 @@ export class LoaderService {
   }
 
   private hideLoader() {
+    this.loading.next(false);
     this.loader.classList.add('honest-loader_pre-hidden');
     setTimeout(() => {
       this.loader.classList.add('honest-loader_hidden');
-      window['isLoading'] = false;
     }, 1000)
   }
 
   private showLoader() {
-    window['isLoading'] = true;
+    this.loading.next(true);
     this.loader.classList.remove('honest-loader_hidden');
     this.loader.classList.remove('honest-loader_pre-hidden');
   }
 
   private playAllVideos() {
     Array.from(document.querySelectorAll('video'))
-      .forEach((video) => {
-        (video as any).play();
+      .forEach((video: HTMLVideoElement) => {
+        video.play();
       });
   }
 }

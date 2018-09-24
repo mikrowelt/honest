@@ -1,5 +1,6 @@
 import {
-  Component, Input,
+  Component, HostBinding,
+  Input,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
@@ -9,12 +10,14 @@ import { PlaceModel } from '../../../../models/place.model';
   selector: 'honest-place',
   templateUrl: './place.component.html',
   styleUrls: ['./place.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    'class': 'honest-place'
-  }
+  encapsulation: ViewEncapsulation.None
 })
 export class PlaceComponent implements OnInit {
+
+  @HostBinding('class')
+  public get setClasses() {
+    return 'honest-place honest-place_flipped';
+  }
 
   @Input()
   public place: PlaceModel;

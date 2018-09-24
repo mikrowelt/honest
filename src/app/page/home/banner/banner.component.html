@@ -1,13 +1,18 @@
+<div class="honest-banner__filter"></div>
 <div class="honest-banner__text">
-  <div class="honest-banner__title">
-    Лучшие решения
-    <br />
-    для ваших мероприятий
-  </div>
-  <div class="honest-banner__description">
-    Мы создаем решения для любых мероприятий.
-    <br />
-    Выбирайте свой формат!
+  <div class="honest-banner__text-wrap">
+    <div class="honest-banner__text-item"
+         *ngFor="let banner of banners">
+      <div class="honest-banner__title"
+           *ngIf="banner === selectedBanner">
+        {{ banner.title }}
+      </div>
+      <div class="honest-banner__description"
+           *ngIf="banner === selectedBanner">
+        {{ banner.description }}
+      </div>
+
+    </div>
   </div>
   <honest-button [text]="'Заказать мероприятие'"
                  pageScroll
@@ -15,17 +20,24 @@
   <div class="honest-banner__button-wrap">
     <honest-button [modifiers]="['white', 'round']"
                    pageScroll
-                   [pageScrollTarget]="'#places'"
+                   [pageScrollTarget]="selectedBanner?.link"
                    [icon]="'fa-chevron-down'"></honest-button>
   </div>
 </div>
-<div class="honest-banner__filter"></div>
-<video class="honest-banner__video"
-       autoplay
-       muted
-       loop>
-  <source src="/assets/video/lights.mp4" type="video/mp4">
-  <img class="honest-banner__img"
-       src="/assets/home.jpg" />
-</video>
+<div class="honest-banner__slider">
+  <div class="honest-banner__slider-wrap">
+    <video class="honest-banner__video"
+           *ngFor="let banner of banners"
+           [@fadeInOutList]="selectedBanner === banner"
+           autoplay
+           muted
+           loop>
+      <source [src]="banner.video"
+              type="video/mp4">
+      <img class="honest-banner__img"
+           src="/assets/home.jpg" />
+    </video>
+  </div>
+</div>
+
 

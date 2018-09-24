@@ -7,6 +7,11 @@
   Доступны масштабные локации и помещения разной площади.
 </div>
 <div class="honest-places__list">
-  <honest-place *ngFor="let place of places"
+  <honest-place *ngFor="let place of places; let i = index"
+                honestScrollAnimation
+                [container]="'#places'"
+                [offset]="300"
+                [delay]="i * 100"
+                [toggleClass]="'honest-place_flipped'"
                 [place]="place"></honest-place>
 </div>

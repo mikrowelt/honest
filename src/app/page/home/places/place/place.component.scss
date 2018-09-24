@@ -4,14 +4,40 @@
   align-items: center;
   width: 380px;
   height: 444px;
+  position: relative;
+
+  &_flipped {
+    .honest-place__image-wrap_front {
+      transform: rotateY(180deg);
+
+    }
+    .honest-place__image-wrap_back {
+      transform: rotateY(0deg);
+
+    }
+  }
 
   &__image-wrap {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 212px;
     height: 233px;
     margin-top: 10px;
     overflow: hidden;
+    backface-visibility: hidden;
+    transition: 3s;
+
+    &_front {
+      transform: rotateY(0deg);
+
+    }
+
+    &_back {
+      transform: rotateY(180deg);
+      background: #fff;
+      z-index: 2;
+
+    }
   }
 
   &__image {
@@ -22,6 +48,14 @@
     right: 2px;
     bottom: 2px;
     left: 2px;
+    backface-visibility: hidden;
+  }
+
+  &__image-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
   }
 
   &__frame {
@@ -31,6 +65,7 @@
     z-index: 2;
     height: 100%;
     width: 101%;
+    backface-visibility: hidden;
   }
 
   &__title {
@@ -52,5 +87,11 @@
     text-align: center;
     color: #8c9ab2;
     margin-top: 10px;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    height: 183px;
   }
 }

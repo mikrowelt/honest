@@ -14,6 +14,9 @@ export class ScrollAnimationDirective implements OnInit{
   @Input()
   public offset: number = 300;
 
+  @Input()
+  public delay: number = 0;
+
   private elOffset: number;
 
   private triggered: boolean = false;
@@ -36,7 +39,9 @@ export class ScrollAnimationDirective implements OnInit{
     const scrollPosition = window.pageYOffset;
 
     if (scrollPosition >= this.elOffset - this.offset) {
-      this.el.nativeElement.classList.remove(this.toggleClass);
+      setTimeout(() => {
+        this.el.nativeElement.classList.remove(this.toggleClass);
+      }, this.delay);
       this.triggered = true;
     }
   }

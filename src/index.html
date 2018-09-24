@@ -48,8 +48,12 @@
         0px 0px 30px #fff,
         0px 0px 30px #fff,
         0px 0px 30px #fff,
+        0px 0px 30px #fff,
+        0px 0px 30px #fff,
+        0px 0px 30px #fff,
         0px 0px 30px #fff;
       transition: 1s all;
+      animation: glow 0.5s infinite alternate;
     }
     .honest-loader__first-time.honest-loader__first-time_visible {
       opacity: 1;
@@ -85,13 +89,6 @@
       animation-direction: normal;
     }
 
-    .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
-    .cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
-    .cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
-    .cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
-    .cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
-    .cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
-
     .cube__face, .cube-a .cube__face {
       position: absolute;
       width: 200px;
@@ -101,7 +98,7 @@
       font-weight: bold;
       color: white;
       text-align: center;
-      border: 10px dashed black;
+      border: 10px double black;
       border-radius: 0;
       box-sizing: border-box;
     }
@@ -114,21 +111,9 @@
       font-weight: bold;
       color: white;
       text-align: center;
-      border: 5px dashed black;
+      border-width: 5px;
       border-radius: 0;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     .cube-a .cube__face--front  {
       transform: rotateY(  0deg) translateZ(50px);
@@ -169,8 +154,8 @@
     }
 
     .honest-loader__spinner {
-      /*animation: slide-up 1s linear;*/
-      /*animation-delay: 0.1s;*/
+      animation: slide-up 1s linear;
+      animation-delay: 0.1s;
     }
 
     @keyframes big-cube {
@@ -215,6 +200,20 @@
       }
     }
 
+    @keyframes glow {
+      to {
+        text-shadow:
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd,
+          0px 0px 30px #ddd;
+      }
+    }
   </style>
 </head>
 <body>

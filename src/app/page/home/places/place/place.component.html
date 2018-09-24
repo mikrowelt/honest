@@ -1,12 +1,22 @@
-<div class="honest-place__image-wrap">
-  <img class="honest-place__frame"
-       src="/assets/hexframe.svg" />
-  <img class="honest-place__image"
-       [src]="place.image" />
+<div class="honest-place__image-wrap honest-place__image-wrap_front">
+  <div class="honest-place__image-inner">
+    <img class="honest-place__frame"
+         src="/assets/hexframe.svg" />
+    <img class="honest-place__image"
+         [src]="place.image" />
+  </div>
 </div>
-<div class="honest-place__title">
-  {{ place.title }}
+<div class="honest-place__image-wrap honest-place__image-wrap_back">
+  <!--<div class="honest-place__image-inner">-->
+    <!--<img class="honest-place__frame"-->
+         <!--src="/assets/hexframe.svg" />-->
+  <!--</div>-->
 </div>
-<div class="honest-place__description">
-  {{ place.description }}
+<div class="honest-place__text">
+  <div class="honest-place__title">
+    {{ place.title }}
+  </div>
+  <div class="honest-place__description">
+    {{ place.description }}
+  </div>
 </div>

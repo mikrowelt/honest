@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, HostBinding,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';

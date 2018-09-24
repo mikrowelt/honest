@@ -27,14 +27,16 @@ import { ContactFormComponent } from './common/contact-form/contact-form.compone
 import { FooterComponent } from './common/footer/footer.component';
 import {RecaptchaModule} from "ng-recaptcha";
 import {SimpleModalModule} from "ngx-simple-modal";
-import {defaultSimpleModalOptions} from "ngx-simple-modal/dist/simple-modal/simple-modal-options";
 import { CaptchaComponent } from './common/captcha/captcha.component';
 import {ContactsService} from "./services/contacts.service";
 import {FormsModule} from "@angular/forms";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {LoaderService} from "./services/loader.service";
 import {ScrollAnimationDirective} from "./common/scroll-animation.directive";
-import {LocalStorageModule} from "@ngx-pwa/local-storage";
+import {BannerResolve} from "./page/home/banner/banner.resolve";
+import {BannerService} from "./services/banner.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { WordScrollerComponent } from './common/word-scroller/word-scroller.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import {LocalStorageModule} from "@ngx-pwa/local-storage";
     ContactFormComponent,
     FooterComponent,
     CaptchaComponent,
-    ScrollAnimationDirective
+    ScrollAnimationDirective,
+    WordScrollerComponent
   ],
   entryComponents: [
     CaptchaComponent
@@ -67,7 +70,7 @@ import {LocalStorageModule} from "@ngx-pwa/local-storage";
     SimpleModalModule.forRoot({container: 'honest-root'}),
     FormsModule,
     Ng2PageScrollModule,
-    LocalStorageModule
+    BrowserAnimationsModule
   ],
   providers: [
     WindowRef,
@@ -78,7 +81,9 @@ import {LocalStorageModule} from "@ngx-pwa/local-storage";
     CateringService,
     CateringPromoResolve,
     ContactsService,
-    LoaderService
+    LoaderService,
+    BannerService,
+    BannerResolve,
   ],
   bootstrap: [
     AppComponent
